@@ -12,7 +12,7 @@ Graph::Writer::DSM - draw graph as a DSM matrix
 =head1 DESCRIPTION
 
 Write graph as a quadractic matrix N x N, where N is the number of vertices in
-the graph. It is usefull to visualize graphs with at least 1k vertices.
+the graph. It is useful to visualize graphs with at least 1k vertices.
 
 See more about DSM: L<http://en.wikipedia.org/wiki/Design_structure_matrix>.
 
