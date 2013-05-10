@@ -19,4 +19,9 @@ sub shutdown : Test(shutdown) {
   rmtree $TEMP_DIR;
 }
 
+use Module::Install::Can;
+sub can_run {
+  Module::Install::Can->can_run($_[1]);
+}
+
 1;

@@ -23,5 +23,19 @@ sub write_output_file : Tests {
   my $writer = Graph::Writer::DSM->new;
   $writer->write_graph($graph, "output.png");
   file_exists_ok "output.png";
+}
+
+sub output_file_isnt_empty : Tests {
+  my $self = shift;
+  return diag('gnuplot not found')
+    unless $self->can_run('gnuplot');
+  my $graph = Graph->new;
+  $graph->add_vertex('A');
+  $graph->add_vertex('B');
+  $graph->add_vertex('C');
+  $graph->add_edge('A', 'B');
+  $graph->add_edge('A', 'C');
+  my $writer = Graph::Writer::DSM->new;
+  $writer->write_graph($graph, "output.png");
   file_not_empty_ok "output.png";
 }
