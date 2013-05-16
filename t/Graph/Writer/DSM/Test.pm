@@ -1,4 +1,4 @@
-package Graph::Writer::DSM::Test;
+package t::Graph::Writer::DSM::Test;
 use base qw(Test::Class);
 use Test::TempDir;
 use File::Path qw(rmtree);
