@@ -116,6 +116,7 @@ sub _write_graph {
     x2tics   => $self->{_dsm_x2tics},
     ytics    => $self->{_dsm_ytics},
     size     => 'ratio 1',
+    terminal => 'png',
   );
   my @points = ();
   my @edges = $graph->edges;
