@@ -71,13 +71,6 @@ sub _move_file_to_filehandle {
   unlink $file;
 }
 
-sub _escape_gnuplot_special_chars {
-  my $array = shift;
-  map { s/\{/\\{{/ } @{ $array };
-  map { s/\}/\\}}/ } @{ $array };
-  map { s/_/\\_/ } @{ $array };
-}
-
 =head1 write_graph()
 
 Write a specific graph to a named file:
@@ -97,7 +90,6 @@ sub _write_graph {
   if ($self->{_dsm_tics_label}) {
     my $i = -1;
     my @y_labels = map { $i++; "'$_ $i' $i" } apply { s/.*\///; $_ } @vertices;
-    _escape_gnuplot_special_chars(\@y_labels);
     $self->{_dsm_ytics} = { labels => \@y_labels };
     $self->{_dsm_x2tics} = [0 .. $#vertices];
   }
