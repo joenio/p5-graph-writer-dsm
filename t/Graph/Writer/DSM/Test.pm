@@ -1,6 +1,6 @@
 package t::Graph::Writer::DSM::Test;
 use base qw(Test::Class);
-use Test::TempDir;
+use Test::TempDir::Tiny;
 use File::Path qw(rmtree);
 
 INIT { Test::Class->runtests }
@@ -10,13 +10,12 @@ our $OLDPWD;
 
 sub startup : Test(startup) {
   $OLDPWD = $ENV{PWD};
-  $TEMP_DIR = temp_root;
+  $TEMP_DIR = tempdir;
   chdir $TEMP_DIR;
 }
 
 sub shutdown : Test(shutdown) {
   chdir $OLDPWD;
-  rmtree $TEMP_DIR;
 }
 
 use Module::Install::Can;
