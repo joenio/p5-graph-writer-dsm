@@ -1,5 +1,5 @@
 package Test::Graph::Writer::DSM;
-use base qw(t::Graph::Writer::DSM::Test);
+use parent qw(t::Graph::Writer::DSM::Test);
 use Test::Most 'no_plan';
 use Test::File;
 use Graph;
